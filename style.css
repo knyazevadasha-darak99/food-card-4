@@ -1,0 +1,105 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.container {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 78px;
+    margin: 0;
+    padding: 220px 0 110px 0;
+    text-align: center;
+    color: #515076;
+}
+
+.product-list{
+    width: 1245px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+
+}
+.product-list .card {
+    width: 340px;
+    height: 573px;
+    background-color: #F7F7FA;
+    padding: 25px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.clear {
+    clear: both;
+}
+
+.product-list .card img {
+    display: block;
+    margin: 0 auto; 
+}
+
+.description, .compaund{
+    color: #515076;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.text-card{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #A5A3B9;
+
+}
+.product-title{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0%;
+    color: #515076;
+
+}
+.price{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #515076;
+    margin-right: 161px;
+}
+
+.compaund-list{
+    font-style: Regular;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0%;
+    color: #515076;
+
+}
+
+.price-number{
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 24px;
+    color: #515076;
+}
+
+.price-wiper{
+    margin-top: 25px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+}
