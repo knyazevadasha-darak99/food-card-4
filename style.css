@@ -1,72 +1,94 @@
-body{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+*{
+    box-sizing:border-box;
 }
 
-.container {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../food-card-4/images/back1.png);
+    background-repeat: no-repeat;
+    background-position: 105px 0;
+    font-size: 13px;
+    line-height: 18px;
+    padding:0 40px;
 }
 
 .title{
-    font-size: 70px;
     font-weight: 400;
     line-height: 78px;
     margin: 0;
-    padding: 220px 0 110px 0;
     text-align: center;
     color: #515076;
+    font-size:55px;
+    padding:120px 0 80px;
 }
+
 
 .product-list{
-    width: 1245px;
-    margin: 0 auto;
+    display: flex;
     list-style: none;
     padding: 0;
-
+    flex-wrap: wrap;
+    gap:25px;
+    justify-content: center;
+    max-width:1120px;
+    margin:0 auto;
 }
+
+
 .product-list .card {
     width: 340px;
-    height: 573px;
+    min-height: 573px;
     background-color: #F7F7FA;
     padding: 25px;
-    float: left;
-    margin-right: 25px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.img-style{
+    width:100%;
+    height:245px;
+    object-fit:contain;
+    margin-bottom:30px;
+}
+
+
+.description{
+    color: #515076;
+    font-size: 13px;
+    line-height: 18px; 
+    margin: 0;
     margin-bottom: 25px;
 }
 
-.clear {
-    clear: both;
-}
 
-.product-list .card img {
-    display: block;
-    margin: 0 auto; 
-}
-
-.description, .compaund{
+.compaund{
     color: #515076;
     font-size: 13px;
     line-height: 18px;
+    font-weight: 400; 
+    margin-bottom: 10px; 
+    display: block; 
 }
+
 
 .text-card{
     font-weight: 400;
     font-size: 12px;
     line-height: 24px;
-    letter-spacing: 0%;
     text-transform: uppercase;
     color: #A5A3B9;
-
+    margin-bottom: 8px; 
+    display: block; 
 }
+
 .product-title{
     font-weight: 700;
-    font-style: Bold;
     font-size: 20px;
-    line-height: 27px;
-    letter-spacing: 0%;
+    line-height: 27px; 
     color: #515076;
+    margin: 0; 
+    margin-bottom: 15px;
+
 
 }
 .price{
@@ -76,16 +98,15 @@ body{
     line-height: 24px;
     letter-spacing: 0%;
     color: #515076;
-    margin-right: 161px;
 }
 
 .compaund-list{
-    font-style: Regular;
+    color: #515076;
     font-size: 13px;
     line-height: 18px;
-    letter-spacing: 0%;
-    color: #515076;
-
+    font-weight: 400; 
+    margin-bottom: 10px; 
+    display: block; 
 }
 
 .price-number{
@@ -96,10 +117,9 @@ body{
     color: #515076;
 }
 
-.price-wiper{
-    margin-top: 25px;
+.price-block {
+    margin-top: auto; 
     display: flex;
-    align-items: baseline;
-    gap: 8px;
-
+    justify-content: space-between;
+    align-items: baseline; 
 }
