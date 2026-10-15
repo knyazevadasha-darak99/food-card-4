@@ -229,7 +229,6 @@ body {
   }
 }
 
-/* Кнопка открытия регистрации */
 #open-modal {
   display: block;
   margin: 24px auto;
@@ -242,7 +241,6 @@ body {
   cursor: pointer;
 }
 
-/* Затемнение */
 .overlay {
   display: none;
   position: fixed;
@@ -255,7 +253,6 @@ body {
   display: block;
 }
 
-/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -272,7 +269,6 @@ body {
   z-index: 101;
 }
 
-/* По заданию здесь только одно свойство */
 .modal-showed {
   display: block;
 }
