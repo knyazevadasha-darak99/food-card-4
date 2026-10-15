@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Cards Footer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homework-11.css" />
+  </head>
+  <body>
+    <button type="button" id="open-modal">Регистрация</button>
+    <footer class="footer">
+      <div class="footer__columns">
+        <div class="footer__brand">
+          <h2 class="footer__title">Product Cards</h2>
+          <p class="footer__desc">У Нас Самые Лучшие Продукты Для Кожи!</p>
+
+          <div class="footer__social">
+            <a href="https://t.me/" aria-label="Telegram">
+              <img src="Vector (1).png" alt="Telegram" />
+            </a>
+            <a href="https://vk.com/" aria-label="VK">
+              <img src="Vector.png" alt="VK" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__subscribe">
+          <h3 class="footer__subtitle">Подпишись на наши акции:</h3>
+
+          <form id="subscribe-form" class="subscribe-form" novalidate>
+            <label for="subscribe-email" class="visually-hidden">Email</label>
+            <input
+              type="email"
+              id="subscribe-email"
+              name="email"
+              placeholder="Введи Email..."
+              required
+            />
+            <button type="submit">Подписаться</button>
+          </form>
+        </div>
+
+        <nav class="footer__nav">
+          <h3 class="footer__subtitle">Быстрые ссылки</h3>
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Магазин</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <hr />
+        <p>www.product-cards.com©all right reserve</p>
+      </div>
+    </footer>
+    <div class="overlay" id="overlay"></div>
+
+    <div
+      class="modal"
+      id="registration-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="registration-title"
+    >
+      <button
+        type="button"
+        class="modal__close"
+        id="close-modal"
+        aria-label="Закрыть окно"
+      >
+        &times;
+      </button>
+
+      <h2 id="registration-title">Регистрация</h2>
+
+      <form id="registration-form" class="registration-form" novalidate>
+        <label for="first-name">Имя</label>
+        <input
+          type="text"
+          id="first-name"
+          name="firstName"
+          placeholder="Введите имя"
+          autocomplete="given-name"
+          pattern=".*\S.*"
+          required
+        />
+
+        <label for="last-name">Фамилия</label>
+        <input
+          type="text"
+          id="last-name"
+          name="lastName"
+          placeholder="Введите фамилию"
+          autocomplete="family-name"
+          pattern=".*\S.*"
+          required
+        />
+
+        <label for="birth-date">Дата рождения</label>
+        <input
+          type="date"
+          id="birth-date"
+          name="birthDate"
+          autocomplete="bday"
+          required
+        />
+
+        <label for="login">Логин — от 3 символов, без пробелов</label>
+        <input
+          type="text"
+          id="login"
+          name="login"
+          placeholder="Придумайте логин"
+          autocomplete="username"
+          minlength="3"
+          pattern="\S+"
+          required
+        />
+
+        <label for="password">Пароль — от 6 символов</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Придумайте пароль"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        />
+
+        <label for="password-repeat">Повторите пароль</label>
+        <input
+          type="password"
+          id="password-repeat"
+          name="passwordRepeat"
+          placeholder="Введите пароль ещё раз"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        />
+
+        <p id="registration-error" role="alert"></p>
+
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </div>
+
+    <script src="homework-11.js"></script>
+  </body>
+</html>
