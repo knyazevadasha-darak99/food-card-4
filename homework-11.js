@@ -1,34 +1,20 @@
-const subscribeForm = document.querySelector("#subscribe-form");
-
-subscribeForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (!subscribeForm.checkValidity()) {
-    subscribeForm.reportValidity();
-    return;
-  }
-
-  const formData = new FormData(subscribeForm);
-  const data = Object.fromEntries(formData);
-
-  console.log(data);
-});
+import { Modal } from "./Modal.js";
+import { Form } from "./Form.js";
+import "./Book.js";
 
 let user = null;
 
+const registrationModal = new Modal("registration-modal");
+const registrationForm = new Form("registration-form");
+const subscribeForm = new Form("subscribe-form");
+
 const openModalButton = document.querySelector("#open-modal");
-const closeModalButton = document.querySelector("#close-modal");
-const modal = document.querySelector("#registration-modal");
 const overlay = document.querySelector("#overlay");
-const registrationForm = document.querySelector("#registration-form");
+const footer = document.querySelector(".footer");
+
 const registrationError = document.querySelector("#registration-error");
-
-const firstNameInput = document.querySelector("#first-name");
 const birthDateInput = document.querySelector("#birth-date");
-const passwordInput = document.querySelector("#password");
 const passwordRepeatInput = document.querySelector("#password-repeat");
-
-let previousBodyOverflow = "";
 
 const today = new Date();
 const year = today.getFullYear();
@@ -37,48 +23,46 @@ const day = String(today.getDate()).padStart(2, "0");
 
 birthDateInput.max = `${year}-${month}-${day}`;
 
-function openModal() {
+function updateBackground() {
+  const isOpen = registrationModal.isOpen();
+
+  footer.inert = isOpen;
+  openModalButton.inert = isOpen;
+}
+
+openModalButton.addEventListener("click", () => {
   registrationError.textContent = "";
+  registrationModal.open();
+  updateBackground();
+});
 
-  modal.classList.add("modal-showed");
-  overlay.classList.add("overlay-showed");
+registrationModal.modal
+  .querySelector(".modal__close")
+  .addEventListener("click", () => {
+    updateBackground();
+    openModalButton.focus();
+  });
 
-  document.querySelector(".footer").inert = true;
-  openModalButton.inert = true;
-
-  previousBodyOverflow = document.body.style.overflow;
-  document.body.style.overflow = "hidden";
-
-  firstNameInput.focus();
-}
-
-function closeModal() {
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("overlay-showed");
-
-  document.querySelector(".footer").inert = false;
-  openModalButton.inert = false;
-
-  document.body.style.overflow = previousBodyOverflow;
+overlay.addEventListener("click", () => {
+  registrationModal.close();
+  updateBackground();
   openModalButton.focus();
-}
-
-openModalButton.addEventListener("click", openModal);
-closeModalButton.addEventListener("click", closeModal);
-
-overlay.addEventListener("click", closeModal);
+});
 
 document.addEventListener("keydown", (event) => {
-  if (!modal.classList.contains("modal-showed")) {
+  if (!registrationModal.isOpen()) {
     return;
   }
 
   if (event.key === "Escape") {
-    closeModal();
+    registrationModal.close();
+    updateBackground();
+    openModalButton.focus();
   }
 
   if (event.key === "Tab") {
-    const elements = modal.querySelectorAll("button, input");
+    const elements = registrationModal.modal.querySelectorAll("button, input");
+
     const firstElement = elements[0];
     const lastElement = elements[elements.length - 1];
 
@@ -92,22 +76,35 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-registrationForm.addEventListener("input", () => {
-  registrationError.textContent = "";
-});
-
-registrationForm.addEventListener("submit", (event) => {
+subscribeForm.form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (!registrationForm.checkValidity()) {
-    registrationError.textContent =
-      "Регистрация отклонена. Проверьте заполнение всех полей.";
-
-    registrationForm.reportValidity();
+  if (!subscribeForm.isValid()) {
+    subscribeForm.form.reportValidity();
     return;
   }
 
-  if (passwordInput.value !== passwordRepeatInput.value) {
+  console.log(subscribeForm.getValues());
+});
+
+registrationForm.form.addEventListener("input", () => {
+  registrationError.textContent = "";
+});
+
+registrationForm.form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!registrationForm.isValid()) {
+    registrationError.textContent =
+      "Регистрация отклонена. Проверьте заполнение всех полей.";
+
+    registrationForm.form.reportValidity();
+    return;
+  }
+
+  const values = registrationForm.getValues();
+
+  if (values.password !== values.passwordRepeat) {
     registrationError.textContent =
       "Регистрация отклонена. Пароли не совпадают.";
 
@@ -115,15 +112,15 @@ registrationForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const formData = new FormData(registrationForm);
-
   user = {
-    ...Object.fromEntries(formData),
+    ...values,
     createdOn: new Date(),
   };
 
   console.log(user);
 
   registrationForm.reset();
-  closeModal();
+  registrationModal.close();
+  updateBackground();
+  openModalButton.focus();
 });
