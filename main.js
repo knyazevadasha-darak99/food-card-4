@@ -1,43 +1,55 @@
-const productCards = document.querySelectorAll('.card');
-const changeColorAllCardButton = document.querySelector('#change-color-all-card');
-const purpureColorHash = '#8000FF';
-const pinkColorHash = '#FFC0CB';
+import "./homework-13.js";
 
-changeColorAllCardButton.addEventListener('click', () => {productCards.forEach((card) => card.style.backgroundColor = purpureColorHash)})
+const productCards = document.querySelectorAll(".card");
+const changeColorAllCardButton = document.querySelector(
+  "#change-color-all-card",
+);
+const purpureColorHash = "#8000FF";
+const pinkColorHash = "#FFC0CB";
 
-const firstProductCard = document.querySelector('.card');
-const changeColorFirstCardButton = document.querySelector('#change-color-first-card');
+changeColorAllCardButton.addEventListener("click", () => {
+  productCards.forEach(
+    (card) => (card.style.backgroundColor = purpureColorHash),
+  );
+});
 
-changeColorFirstCardButton.addEventListener('click', () => {firstProductCard.style.backgroundColor = pinkColorHash;}) 
+const firstProductCard = document.querySelector(".card");
+const changeColorFirstCardButton = document.querySelector(
+  "#change-color-first-card",
+);
 
-const openGoogleButton = document.querySelector('#open-google');
+changeColorFirstCardButton.addEventListener("click", () => {
+  firstProductCard.style.backgroundColor = pinkColorHash;
+});
 
-openGoogleButton.addEventListener('click', openGoogle)
+const openGoogleButton = document.querySelector("#open-google");
+
+openGoogleButton.addEventListener("click", openGoogle);
 
 function openGoogle() {
-    const answer = confirm("Вы действительно хотите открыть Google?");
+  const answer = confirm("Вы действительно хотите открыть Google?");
 
-    if (answer === true) {
-        window.open('https://google.com')
-    } else{
-        return; 
-    }
+  if (answer === true) {
+    window.open("https://google.com");
+  } else {
+    return;
+  }
 }
 
-const outputConsoleLogButton = document.querySelector('#output-console-log');
+const outputConsoleLogButton = document.querySelector("#output-console-log");
 
-outputConsoleLogButton.addEventListener('click', () => {
-    console.log('Магазин косметики');
+outputConsoleLogButton.addEventListener("click", () => {
+  console.log("Магазин косметики");
 });
 
-const title = document.querySelector('.catalog__title');
+const title = document.querySelector(".catalog__title");
 
-title.addEventListener('mouseover', () => {
-    console.log(title.textContent);
+title.addEventListener("mouseover", () => {
+  console.log(title.textContent);
 });
 
-const toggleColorButton = document.querySelector('#toggle-color-button');
+const toggleColorButton = document.querySelector("#toggle-color-button");
 
-toggleColorButton.addEventListener('click', () => {
-    toggleColorButton.classList.toggle('button--active');
+toggleColorButton.addEventListener("click", () => {
+  toggleColorButton.classList.toggle("button--active");
 });
